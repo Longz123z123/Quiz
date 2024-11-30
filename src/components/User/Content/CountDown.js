@@ -12,7 +12,7 @@ const CountDown = (props) => {
       .filter((v, i) => v !== '00' || i > 0)
       .join(':');
   };
-  const [count, setCount] = useState(900);
+  const [count, setCount] = useState(300);
 
   useEffect(() => {
     if (count === 0) {
