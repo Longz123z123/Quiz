@@ -37,13 +37,18 @@ const Header = () => {
   };
   const openAdminTab = (e) => {
     e.preventDefault(); // Ngăn không cho NavLink thực hiện chuyển hướng theo mặc định
-    window.open('/admins', '_blank'); // Mở tab mới
+
+    // Kiểm tra vai trò của tài khoản
+    if (account.role === 'ADMIN') {
+      window.open('/admins', '_blank'); // Mở tab mới nếu là ADMIN
+    } else {
+      toast.error('404 Error: You do not have permission to access this page.'); // Hiển thị thông báo lỗi
+    }
   };
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        {/* <Navbar.Brand href="">HỎI DÂN IT</Navbar.Brand> */}
         <NavLink to={`/`} className="navbar-brand">
           <img
             src={logoz}
@@ -64,12 +69,12 @@ const Header = () => {
             <NavLink to={`/quizzes`} className="nav-link">
               Quizzes
             </NavLink>
-            {isAuthenticated &&
-              account.role === 'ADMIN' && ( // Chỉ hiển thị khi vai trò là ADMIN
-                <NavLink to={`/admins`} className="nav-link" onClick={openAdminTab}>
-                  Admin
-                </NavLink>
-              )}
+            {/* {isAuthenticated &&
+              account.role === 'ADMIN' && ( // Chỉ hiển thị khi vai trò là ADMIN */}
+            <NavLink to={`/admins`} className="nav-link" onClick={openAdminTab}>
+              Admin
+            </NavLink>
+
             {/* <NavLink to={`/admins`} className="nav-link" onClick={openAdminTab}>
               Admin
             </NavLink> */}

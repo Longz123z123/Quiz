@@ -73,7 +73,7 @@ const Register = (props) => {
         <button onClick={() => navigate('/login')}>Log in</button>
         <Language />
       </div>
-      <div className="title col-4 mx-auto">Hỏi Dân IT &amp; Eric</div>
+      <div className="title col-4 mx-auto">Welcome you &amp; go Quiz</div>
       <div className="welcome col-4 mx-auto">Start your journey?</div>
       <div className="content-form col-4 mx-auto">
         <div className="form-group">
