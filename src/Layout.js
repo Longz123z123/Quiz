@@ -43,7 +43,7 @@ const Layout = (props) => {
         <Route
           path="/admins"
           element={
-            <PrivateRoute>
+            <PrivateRoute requireAdmin={true}>
               <Admin />
             </PrivateRoute>
           }
